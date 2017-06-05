@@ -1,4 +1,4 @@
-package siw.progetto.galleriaArte;
+package siw.progetto.model;
 
 import java.util.ArrayList;
 import java.util.Date;

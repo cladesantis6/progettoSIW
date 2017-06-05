@@ -1,4 +1,4 @@
-package siw.progetto.galleriaArte;
+package siw.progetto.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
