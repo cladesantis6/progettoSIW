@@ -9,10 +9,13 @@ import siw.progetto.galleriaArte.model.Opera;
 
 public interface OperaRepository extends CrudRepository<Opera, Long> {
 
-    List<Opera> findByTitolo(String titolo);
+    
 
     List<Opera> findByAutore(Autore autore);  // ??????
+        
+    List<Opera> findByTitoloOrderByTitoloAsc(String titolo); 
     
-    List<Opera> findByAnno(int anno);
+    List<Opera> findByAutoreOrderByAutoreAsc(Autore autore);
+    
     
 }

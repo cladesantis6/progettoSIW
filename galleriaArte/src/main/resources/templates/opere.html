@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title> Opere </title>
+<meta charset="UTF-8" />
+</head>
+
+<body>
+	
+	<a href="/opereAnno"> ordinate per anno </a>
+	<a href="/opereAutore"> ordinate per autore </a>
+	
+	<section>
+	<ul th:each="opera : ${opere}">
+			<li><a th:href ="@{/opere/$ {opera.id} }"> ${opera.titolo} </a>
+			</li>
+	</ul>
+	</section>
+	
+	<a href="/home">torna alla home </a> 
+</body>
+</html>
