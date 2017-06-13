@@ -1,4 +1,4 @@
-package siw.progetto.model;
+package siw.progetto.galleriaArte.model;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,16 +9,30 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Autore {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idAutore; 
+	
+	@NotNull
 	private String nome; 
+	
+	@NotNull
 	private String cognome; 
+	
+	@NotNull
 	private String nazionalita; 
+	
+	@NotNull
+	@Temporal(TemporalType.DATE)
 	private Date dataNascita;
+	
+	@Temporal(TemporalType.DATE)
 	private Date dataMorte; 
 	
 	@OneToMany

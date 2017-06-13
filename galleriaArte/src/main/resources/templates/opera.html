@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<title th:text=${opera.titolo}></title>
+<body>
+	<img th:src="@{${'/img/icons/' + opera.operaId + '.png'}}" />
+	<div>
+    	<p th:text=" ${opera.anno}" />
+    </div>
+	<div>
+    	<p th:text="'Autore: ' + ${opera.autore}" />
+    </div>
+
+</body>
+</html>
