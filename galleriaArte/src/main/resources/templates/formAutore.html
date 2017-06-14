@@ -24,7 +24,7 @@
                 </div>
                 <div>
                     <span th:text="#{label.dataNascita}">Date of birth: </span>
-                    <span><input type="data" th:field="*{dataNascita}" /></span>
+                    <span><input type="date" th:field="*{dataNascita}" /></span>
                     <span th:if="${#fields.hasErrors('dataNascita')}" th:text="#{label.mandatory}" >Error</span>
                 </div> 
                <!-- <div>

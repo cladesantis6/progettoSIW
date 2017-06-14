@@ -5,23 +5,30 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 	    <body>
-        <form action="#" th:action="@{/addopera}" th:object="${customer}" method="post">
+        <form action="#" th:action="@{/addopera}" th:object="${opera}" method="post">
             <div>
                 <div>
-                    <span th:text="#{label.firstName}">Titolo: </span>
-                    <span><input type="text" th:field="*{firstName}" /></span>
-                    <span th:if="${#fields.hasErrors('firstName')}" th:text="#{label.mandatory}">Error</span>
+                    <span th:text="#{label.titolo}">Title: </span>
+                    <span><input type="text" th:field="*{titolo}" /></span>
+                    <span th:if="${#fields.hasErrors('titolo')}" th:text="#{label.mandatory}">Error</span>
                 </div>
                 <div>
-                    <span th:text="#{label.lastName}">Anno: </span>
-                    <span><input type="text" th:field="*{lastName}" /></span>
-                    <span th:if="${#fields.hasErrors('lastName')}" th:text="#{label.mandatory}">Error</span>
+                    <span th:text="#{label.anno}">Anno: </span>
+                    <span><input type="text" th:field="*{anno}" /></span>
+                    <span th:if="${#fields.hasErrors('anno')}" th:text="#{label.mandatory}">Error</span>
                 </div>
                 <div>
                     <span th:text="#{label.age}">Age: </span>
                     <span><input type="text" th:field="*{age}" /></span>
                     <span th:if="${#fields.hasErrors('age')}" th:text="#{label.number}">Error</span>
                 </div>
+                <div class="dropdown">
+				  <button class="dropbtn">Autore</button>
+				  <div class="dropdown-content">
+				  <ul th:each="autore : ${autori}">
+					<a th:href ="@{/autori/${autore.id} }" th:text="#{autore.nome}"> Nessun autore </a>
+				  </div>
+				</div>
                 <div>
                     <span><button type="submit">Submit</button></span>
                 </div>

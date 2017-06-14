@@ -1,5 +1,6 @@
 package siw.progetto.galleriaArte.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,10 +14,12 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Autore {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idAutore; 
 	
 	@NotNull
@@ -28,9 +31,10 @@ public class Autore {
 	@NotNull
 	private String nazionalita; 
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@NotNull
-	@Temporal(TemporalType.DATE)
-	private Date dataNascita;
+	//@Temporal(TemporalType.DATE)
+	private LocalDate dataNascita;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dataMorte; 
@@ -84,12 +88,12 @@ public class Autore {
 	}
 
 
-	public Date getDataNascita() {
+	public LocalDate getDataNascita() {
 		return dataNascita;
 	}
 
 
-	public void setDataNascita(Date dataNascita) {
+	public void setDataNascita(LocalDate dataNascita) {
 		this.dataNascita = dataNascita;
 	}
 
