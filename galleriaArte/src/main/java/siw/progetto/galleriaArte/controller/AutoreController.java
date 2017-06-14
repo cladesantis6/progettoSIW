@@ -28,13 +28,14 @@ public class AutoreController {
 	
 	@GetMapping("/autori")
 	public String showAutori(Model model) {
-		List<Autore> autori = (List<Autore>) autoreservice.findAll();
-		model.addAttribute(autori);
+		//List<Autore> autori = (List<Autore>) autoreservice.findAll();
+		//for (Autore autore:autori ) {System.out.println(""+autore.getCognome());}
+		model.addAttribute("autori", autoreservice.findAll());
 		return "autori";
 	}
 	
 
-	@GetMapping("/autori/{id}")
+	@GetMapping("/autori/autore/{id}")
 	public String showAutore(Model model, @PathVariable("id") long autoreId) {
 		Autore autore = autoreservice.findbyId(autoreId);
 		model.addAttribute(autore);

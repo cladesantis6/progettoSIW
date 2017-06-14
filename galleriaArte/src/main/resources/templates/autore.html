@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<title th:text="${autore.cognome}"></title>
+<body>
+	<!-- <img th:src="@{${'/img/icons/' + opera.operaId + '.png'}}" /> -->
+	<div>
+    	<p th:text=" ${autore.nome}" />
+    </div>
+    <div>
+    	<p th:text=" ${autore.cognome}" />
+    </div>
+    <div>
+    	<p th:text=" ${autore.nazionalita}" />
+    </div>
+	<div>
+    	<p th:text="'Data di Nascita: ' + ${autore.dataNascita}" />
+    </div>
+    <div>
+    	<p th:text="'Data di Morte: ' + ${autore.dataMorte}" th:if="${autore.dataMorte}" />
+    </div>
+    
+    <div> <a href="/home"> torna alla home </a></div>   <!-- Dobbiamo mettere che manda alla creazione dell'opera -->
+
+</body>
+</html>

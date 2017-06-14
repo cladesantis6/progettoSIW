@@ -33,9 +33,10 @@ public class Autore {
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@NotNull
-	//@Temporal(TemporalType.DATE)
-	private LocalDate dataNascita;
+	@Temporal(TemporalType.DATE)
+	private Date dataNascita;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date dataMorte; 
 	
@@ -88,12 +89,12 @@ public class Autore {
 	}
 
 
-	public LocalDate getDataNascita() {
+	public Date getDataNascita() {
 		return dataNascita;
 	}
 
 
-	public void setDataNascita(LocalDate dataNascita) {
+	public void setDataNascita(Date dataNascita) {
 		this.dataNascita = dataNascita;
 	}
 

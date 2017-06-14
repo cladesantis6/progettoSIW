@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Inserisci una nuova opera</title>
+    <title>Inserisci un nuovo autore</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 	    <body>
@@ -27,14 +27,14 @@
                     <span><input type="date" th:field="*{dataNascita}" /></span>
                     <span th:if="${#fields.hasErrors('dataNascita')}" th:text="#{label.mandatory}" >Error</span>
                 </div> 
-               <!-- <div>
+                <div>
                       <span th:text="#{label.dataMorte}">Date of death: </span>
-                    <span><input type="date" th:value="*{dataMorte}" /></span>
-                    <span th:if="${#fields.hasErrors('dataMorte')}" th:text="{#label.date}" >Error</span>
-                </div> -->
+                    <span><input type="date" th:field="*{dataMorte}" /></span>
+                    <span th:if="${#fields.hasErrors('dataMorte')}" th:text="#{label.date}" >Error</span>
+                </div> 
                 
                 <div>
-                    <span><button type="submit">Submit</button></span>
+                    <span><button type="submit">Invia</button></span>
                 </div>
             </div>
         </form>
