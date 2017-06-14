@@ -44,12 +44,12 @@ public class AutoreController {
 	
 	/* form */
 	
-	@GetMapping("/addautore")
+	@GetMapping("/addAutore")
     public String showForm(Autore autore) {
         return "formAutore";
     }
 
-    @PostMapping("/addautore")
+    @PostMapping("/addAutore")
     public String checkCustomerInfo(@Valid @ModelAttribute Autore autore, 
     									BindingResult bindingResult, Model model) {
     	
@@ -62,7 +62,6 @@ public class AutoreController {
         }
         return "autore";
     }
-    
     
 /*	@PostMapping(value="/autore{id}", params="delete")                                     //rivedi
 	public String cancellaAutore(Model model, @PathVariable("id") long autoreId) {

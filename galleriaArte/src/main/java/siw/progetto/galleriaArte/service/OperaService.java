@@ -36,7 +36,6 @@ public class OperaService {
 			operaRepository.delete(opera);
 		}
 	}
-
 	
 	@Transactional
 	public void delete(Opera opera ) {
