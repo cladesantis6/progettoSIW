@@ -8,12 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import siw.progetto.galleriaArte.model.Autore;
-import siw.progetto.galleriaArte.model.Opera;
 import siw.progetto.galleriaArte.service.AutoreService;
 
 
@@ -25,7 +23,7 @@ public class AutoreController {
     
 	 /* visione autori*/
 	
-	@GetMapping("/autori")
+	@GetMapping("/home/autori")
 	public String showAutori(Model model) {
 		//List<Autore> autori = (List<Autore>) autoreservice.findAll();
 		//for (Autore autore:autori ) {System.out.println(""+autore.getCognome());}
@@ -33,7 +31,7 @@ public class AutoreController {
 		return "autori";
 	}
 	
-	@GetMapping("/autori/autore")//"/autori/autore/{id}")
+	@GetMapping("/home/autori/autore")
 	public String showAutore(Model model, @RequestParam("id") long idAutore) {
 		Autore autore = autoreservice.findbyId(idAutore);
 		model.addAttribute(autore);
@@ -50,12 +48,12 @@ public class AutoreController {
 	
 	/* form */
 	
-	@GetMapping("/addAutore")
+	@GetMapping("/home/addAutore")
     public String showForm(Autore autore) {
         return "formAutore";
     }
 
-    @PostMapping("/addAutore")
+    @PostMapping("/home/addAutore")
     public String checkCustomerInfo(@Valid @ModelAttribute Autore autore, 
     									BindingResult bindingResult, Model model) {
     	

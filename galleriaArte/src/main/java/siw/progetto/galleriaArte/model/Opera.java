@@ -10,8 +10,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Opera {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idOpera; 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id; 
 	
 	@NotNull
 	private String titolo; 
@@ -22,11 +22,11 @@ public class Opera {
 	@ManyToOne
 	private Autore autore;
 	
-	public Long getIdOpera() {
-		return idOpera;
+	public Long getId() {
+		return id;
 	}
-	public void setIdOpera(Long idOpera) {
-		this.idOpera = idOpera;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getTitolo() {
 		return titolo;
@@ -52,7 +52,7 @@ public class Opera {
 		int result = 1;
 		result = prime * result + anno;
 		result = prime * result + ((autore == null) ? 0 : autore.hashCode());
-		result = prime * result + ((idOpera == null) ? 0 : idOpera.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((titolo == null) ? 0 : titolo.hashCode());
 		return result;
 	}
@@ -72,10 +72,10 @@ public class Opera {
 				return false;
 		} else if (!autore.equals(other.autore))
 			return false;
-		if (idOpera == null) {
-			if (other.idOpera != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!idOpera.equals(other.idOpera))
+		} else if (!id.equals(other.id))
 			return false;
 		if (titolo == null) {
 			if (other.titolo != null)

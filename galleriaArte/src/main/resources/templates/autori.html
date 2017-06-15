@@ -13,7 +13,7 @@
 
 	<section>
 	<ul th:each="autore : ${autori}">
-			<li><a th:href ="@{/autori/autore(id=${autore.id})}" th:text="${autore.cognome}"> autore </a>
+			<li><a th:href ="@{/home/autori/autore(id=${autore.id})}" th:text="${autore.cognome}"> autore </a>
 			</li>
 	</ul>
 	</section>

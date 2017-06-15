@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import siw.progetto.galleriaArte.model.Autore;
 import siw.progetto.galleriaArte.model.Opera;
 import siw.progetto.galleriaArte.service.AutoreService;
 import siw.progetto.galleriaArte.service.OperaService;
@@ -24,29 +27,30 @@ public class OperaController {
 
 	@Autowired
 	private OperaService operaservice; 
+	@Autowired
 	private AutoreService autoreservice; 
 
 
 	 /* visione delle opere*/
 	
 	
-	@GetMapping("/opere")
+	@GetMapping("/home/opere")
 	public String showOpere(Model model) {
 		List<Opera> opere = (List<Opera>) operaservice.findAll();
 		model.addAttribute(opere);
 		return "opere";
 	}
 
-	@GetMapping("/opere/{id}")
-	public String showOpera(Model model, @PathVariable("id") long operaId) {
-		Opera opera = operaservice.findbyId(operaId);
+	@GetMapping("/home/opere/opera")
+	public String showOpera(Model model, @RequestParam("id") long idOpera) {
+		Opera opera= operaservice.findbyId(idOpera);
 		model.addAttribute(opera);
 		return "opera";
 	}
 
 	
-	@GetMapping("/addOpera")
-	public String showForm(Model model, Opera opera){
+	@GetMapping("/home/addOpera")
+	public String showForm(Opera opera, Model model){
 		model.addAttribute("autori", autoreservice.findAll());
 		return "formOpera";
 	}

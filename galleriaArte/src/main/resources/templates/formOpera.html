@@ -17,15 +17,14 @@
                     <span><input type="text" th:field="*{anno}" /></span>
                     <span th:if="${#fields.hasErrors('anno')}" th:text="#{label.mandatory}">Error</span>
                 </div>
-
+                
 		<div> <p> Scegli un autore: </p>
-			<select name="dropAutore" id="dropAutore">
+			<select name="dropAutore" id="dropAutore" th:field="*{autore}">
 			<option value="0"> seleziona artista </option>
-			<option th:each="autore:${autori}" th:value="${autore.id}" th:text="${autore.cognome}"> </option>
+			<option th:each="autore : ${autori}" th:value="${autore.id}" th:text="${autore.cognome}"> </option>
 			</select>
 
 		</div>
-
 		<div>
 					<span><button type="submit">Invia</button></span>
 				</div>

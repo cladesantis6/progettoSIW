@@ -7,12 +7,12 @@
 
 <body>
 	
-	<a href="/opereAnno"> ordinate per anno </a>
-	<a href="/opereAutore"> ordinate per autore </a>
+	<a href="/home/opere/opereAnno"> ordinate per anno </a>
+	<a href="home/opere/opereAutore"> ordinate per autore </a>
 	
-	<section>
+<section>
 	<ul th:each="opera : ${opere}">
-			<li><a th:href ="@{/opere/$ {opera.id} }"> ${opera.titolo} </a>
+			<li><a th:href ="@{/home/opere/opera(id=${opera.id})}" th:text="${opera.titolo}"> titolo </a>
 			</li>
 	</ul>
 	</section>
