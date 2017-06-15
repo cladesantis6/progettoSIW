@@ -1,7 +1,5 @@
 package siw.progetto.galleriaArte.controller;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import siw.progetto.galleriaArte.model.Autore;
 import siw.progetto.galleriaArte.model.Opera;
@@ -34,14 +33,20 @@ public class AutoreController {
 		return "autori";
 	}
 	
-
-	@GetMapping("/autori/autore/{id}")
-	public String showAutore(Model model, @PathVariable("id") long autoreId) {
-		Autore autore = autoreservice.findbyId(autoreId);
+	@GetMapping("/autori/autore")//"/autori/autore/{id}")
+	public String showAutore(Model model, @RequestParam("id") long idAutore) {
+		Autore autore = autoreservice.findbyId(idAutore);
 		model.addAttribute(autore);
 		return "autore";
 	}
-
+	
+	
+	/*@GetMapping("/autori/autore/{idAutore}")//"/autori/autore/{autoreId}")
+	public String showAutore(Model model, @PathVariable("idAutore") long idAutore) {
+		Autore autore = autoreservice.findbyId(idAutore);
+		model.addAttribute(autore);
+		return "autore";
+	}*/
 	
 	/* form */
 	

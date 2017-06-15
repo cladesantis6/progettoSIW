@@ -20,7 +20,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Autore {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idAutore; 
+	private Long id; 
 	
 	@NotNull
 	private String nome; 
@@ -49,13 +49,13 @@ public class Autore {
 	}
 
 
-	public Long getIdArtista() {
-		return idAutore;
+	public Long getId() {
+		return id;
 	}
 
 
-	public void setIdArtista(Long idAutore) {
-		this.idAutore = idAutore;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 
@@ -126,7 +126,7 @@ public class Autore {
 		result = prime * result + ((cognome == null) ? 0 : cognome.hashCode());
 		result = prime * result + ((dataMorte == null) ? 0 : dataMorte.hashCode());
 		result = prime * result + ((dataNascita == null) ? 0 : dataNascita.hashCode());
-		result = prime * result + ((idAutore == null) ? 0 : idAutore.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nazionalita == null) ? 0 : nazionalita.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((opere == null) ? 0 : opere.hashCode());
@@ -158,10 +158,10 @@ public class Autore {
 				return false;
 		} else if (!dataNascita.equals(other.dataNascita))
 			return false;
-		if (idAutore == null) {
-			if (other.idAutore != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!idAutore.equals(other.idAutore))
+		} else if (!id.equals(other.id))
 			return false;
 		if (nazionalita == null) {
 			if (other.nazionalita != null)
