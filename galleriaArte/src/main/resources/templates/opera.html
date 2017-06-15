@@ -15,6 +15,7 @@
     
    <!--  <div sec:authorize="hasRole('ROLE_ADMIN')"> </div> -->
    <form action="#" th:action="@{/home/opere/opera}" th:object="${opera}" method="post">
+   <input type="hidden" th:field="${opera.id}"/>
 	<input type="submit" value="cancella" name="delete" />
 	</form>
             

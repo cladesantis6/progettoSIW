@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 	    <body>
-        <form action="#" th:action="@{/addOpera}" th:object="${opera}" method="post">
+        <form action="#" th:action="@{/home/addOpera}" th:object="${opera}" method="post">
             
                 <div>
                     <span th:text="#{label.titolo}">Title: </span>
@@ -29,5 +29,6 @@
 					<span><button type="submit">Invia</button></span>
 				</div>
 			</form>
+			<a href="/home"> torna alla home</a>
     </body>
 </html>

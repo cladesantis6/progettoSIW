@@ -71,9 +71,10 @@ public class OperaController {
 	}
 
 	@PostMapping(value="/home/opere/opera", params="delete")
-	public String deleteOpera (Model model, @ModelAttribute Opera opera) {
+	public String deleteOpera (Model model, @RequestParam("id") long idOpera) {
+		Opera opera = operaservice.findbyId(idOpera);
 		this.operaservice.delete(opera);
-		model.addAttribute(this.operaservice.findAll());
+		model.addAttribute("opere",this.operaservice.findAll());
 		return "opere";
 	}
 
