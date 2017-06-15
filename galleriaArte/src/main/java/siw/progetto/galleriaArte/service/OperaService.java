@@ -28,14 +28,6 @@ public class OperaService {
 	public Opera findbyId(Long id) {
 		return this.operaRepository.findOne(id);
 	}
-
-	@Transactional
-	public void deletebyAutore(Autore autore) {
-		List<Opera> opere = autore.getOpere();
-		for(Opera opera: opere) {
-			operaRepository.delete(opera);
-		}
-	}
 	
 	@Transactional
 	public void delete(Opera opera ) {

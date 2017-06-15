@@ -34,7 +34,6 @@ public class AutoreService {
 	
 	@Transactional
 	public void delete(final Autore autore) {
-		this.operaService.deletebyAutore(autore);
 		this.autoreRepository.delete(autore);
 	}
 	

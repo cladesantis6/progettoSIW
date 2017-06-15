@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import siw.progetto.galleriaArte.model.Autore;
+import siw.progetto.galleriaArte.model.Opera;
 import siw.progetto.galleriaArte.service.AutoreService;
 
 
@@ -74,4 +75,13 @@ public class AutoreController {
 		model.addAttribute(this.autoreservice.findAll());
 		return "autori";
 	}*/
+    
+    @PostMapping(value="/home/autori/autore", params="delete")
+	public String deleteOpera (Model model, @RequestParam("id") long idAutore) {
+		Autore autore = autoreservice.findbyId(idAutore);
+		this.autoreservice.delete(autore);
+		model.addAttribute("autori",this.autoreservice.findAll());
+		return "autori";
+	}
+
 }

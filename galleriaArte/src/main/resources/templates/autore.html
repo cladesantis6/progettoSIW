@@ -19,6 +19,11 @@
     	<p th:text="'Data di Morte: ' + ${autore.dataMorte}" th:if="${autore.dataMorte}" />
     </div>
     
+      <form action="#" th:action="@{/home/autori/autore}" th:object="${autore}" method="post">
+   <input type="hidden" th:field="${autore.id}"/>
+	<input type="submit" value="cancella" name="delete" />
+	</form>
+    
     <div> <a href="/home"> torna alla home </a></div>   <!-- Dobbiamo mettere che manda alla creazione dell'opera -->
 
 </body>
