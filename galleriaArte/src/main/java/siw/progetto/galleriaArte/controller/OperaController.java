@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import siw.progetto.galleriaArte.model.Opera;
+import siw.progetto.galleriaArte.service.AutoreService;
 import siw.progetto.galleriaArte.service.OperaService;
 
 
@@ -23,6 +24,7 @@ public class OperaController {
 
 	@Autowired
 	private OperaService operaservice; 
+	private AutoreService autoreservice; 
 
 
 	 /* visione delle opere*/
@@ -44,7 +46,8 @@ public class OperaController {
 
 	
 	@GetMapping("/addOpera")
-	public String showForm(Opera opera){
+	public String showForm(Model model, Opera opera){
+		model.addAttribute("autori", autoreservice.findAll());
 		return "formOpera";
 	}
 	
