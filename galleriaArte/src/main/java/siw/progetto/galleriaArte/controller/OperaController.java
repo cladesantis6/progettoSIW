@@ -36,8 +36,7 @@ public class OperaController {
 	
 	@GetMapping("/home/opere")
 	public String showOpere(Model model) {
-		List<Opera> opere = (List<Opera>) operaservice.findAll();
-		model.addAttribute(opere);
+		model.addAttribute("opere", operaservice.findAll());
 		return "opere";
 	}
 
@@ -58,7 +57,7 @@ public class OperaController {
 	/* form */
 	
 	
-	@PostMapping("/addOpera")
+	@PostMapping("/home/addOpera")
 	public String checkOpera(@Valid @ModelAttribute Opera opera,
 			BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()){
@@ -71,13 +70,12 @@ public class OperaController {
 		return "opera";
 	}
 
-/*@PostMapping(value="/opere{id}", params="delete")                                     //rivedi
-		public String cancellaOpera(Model model, @PathVariable("id") long operaId) {
-			Opera opera = operaservice.findbyId(operaId);
-			this.operaservice.delete(opera);
-			model.addAttribute(this.operaservice.findAll());
-			return "opere";
-		}
-		*/
+	@PostMapping(value="/home/opere/opera", params="delete")
+	public String deleteOpera (Model model, @ModelAttribute Opera opera) {
+		this.operaservice.delete(opera);
+		model.addAttribute(this.operaservice.findAll());
+		return "opere";
 	}
 
+	
+}

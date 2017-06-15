@@ -12,7 +12,17 @@
 	<div>
     	<p th:text="'Autore: ' + ${opera.autore.cognome}" />
     </div>
-  <div> <a href="/home/addOpera"> inserisci un'altra opera </a></div>
+    
+   <!--  <div sec:authorize="hasRole('ROLE_ADMIN')"> </div> -->
+   <form action="#" th:action="@{/home/opere/opera}" th:object="${opera}" method="post">
+	<input type="submit" value="cancella" name="delete" />
+	</form>
+            
+   
+   
+   <div>
+  <a href="/home/addOpera"> inserisci un'altra opera </a>
+  </div>
  <div> <a href="/home"> torna alla home </a></div>
 </body>
 </html>
