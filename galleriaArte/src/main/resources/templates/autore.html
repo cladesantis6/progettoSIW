@@ -26,7 +26,10 @@
 	<form action="#" th:action="@{/home/autori/autore}"
 		th:object="${autore}" method="post">
 		<input type="hidden" th:field="${autore.id}" /> 
-		<input type="submit"  value="cancella" name="delete" />
+		<button type="submit"  value="cancella" name="delete" class="btn btn-danger btn-sm">
+		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+		Cancella
+		</button>
 	</form>
 
 	<br>
