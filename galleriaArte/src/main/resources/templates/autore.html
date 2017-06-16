@@ -1,30 +1,43 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <title th:text="${autore.cognome}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="/bootstrap-3.3.7/css/bootstrap.min.css" />
 <body>
 	<!-- <img th:src="@{${'/img/icons/' + opera.operaId + '.png'}}" /> -->
 	<div>
-    	<p th:text=" ${autore.nome}" />
-    </div>
-    <div>
-    	<p th:text=" ${autore.cognome}" />
-    </div>
-    <div>
-    	<p th:text=" ${autore.nazionalita}" />
-    </div>
+		<p th:text=" ${autore.nome}" />
+	</div>
 	<div>
-    	<p th:text="'Data di Nascita: ' + ${autore.dataNascita}" />
-    </div>
-    <div>
-    	<p th:text="'Data di Morte: ' + ${autore.dataMorte}" th:if="${autore.dataMorte}" />
-    </div>
-    
-      <form action="#" th:action="@{/home/autori/autore}" th:object="${autore}" method="post">
-   <input type="hidden" th:field="${autore.id}"/>
-	<input type="submit" value="cancella" name="delete" />
+		<p th:text=" ${autore.cognome}" />
+	</div>
+	<div>
+		<p th:text=" ${autore.nazionalita}" />
+	</div>
+	<div>
+		<p th:text="'Data di Nascita: ' + ${autore.dataNascita}" />
+	</div>
+	<div>
+		<p th:text="'Data di Morte: ' + ${autore.dataMorte}"
+			th:if="${autore.dataMorte}" />
+	</div>
+
+	<form action="#" th:action="@{/home/autori/autore}"
+		th:object="${autore}" method="post">
+		<input type="hidden" th:field="${autore.id}" /> 
+		<input type="submit"  value="cancella" name="delete" />
 	</form>
-    
-    <div> <a href="/home"> torna alla home </a></div>   <!-- Dobbiamo mettere che manda alla creazione dell'opera -->
+
+	<br>
+	</br>
+	<br>
+	</br>
+	<a href="/home"> <span class="glyphicon glyphicon-home"> </span> <b></b>
+		torna alla home
+	</a>
+	<script src="/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 </html>
