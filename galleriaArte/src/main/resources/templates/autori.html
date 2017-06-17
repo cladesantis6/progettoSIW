@@ -2,22 +2,32 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title> Autori </title>
-<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="/bootstrap-3.3.7/css/bootstrap.min.css" />
 </head>
 
 <body>
 	
 	<h1> Autori: </h1>
 	
-	<!-- <a href="/autoriAnno"> ordinati per anno </a>  -->
+	<!--   <a href="/autoriAnno" ><span class="glyphicon glyphicon-list-alt"> </span> ordinati per anno </a>  -->
 
 	<section>
-	<ul th:each="autore : ${autori}">
-			<li><a th:href ="@{/home/autori/autore(id=${autore.id})}" th:text="${autore.cognome}"> autore </a>
+	<ul class="list-group" th:each="autore : ${autori}">
+			<li  class="list-group-item disabled"><a th:href ="@{/home/autori/autore(id=${autore.id})}" th:text="${autore.cognome}"> autore </a>
 			</li>
 	</ul>
 	</section>
 	
-	<a href="/home">torna alla home </a> 
+	
+	
+	<br> </br>
+	<br> </br>
+	<a href="/home"> <span class="glyphicon glyphicon-home"> </span> <b></b>
+		torna alla home
+	</a>
+	<script src="/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

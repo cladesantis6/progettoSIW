@@ -1,34 +1,51 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Inserisci una nuova opera</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Inserisci una nuova opera</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="/bootstrap-3.3.7/css/bootstrap.min.css" />
 </head>
-	    <body>
-        <form action="#" th:action="@{/home/addOpera}" th:object="${opera}" method="post">
-            
-                <div>
-                    <span th:text="#{label.titolo}">Title: </span>
-                    <span><input type="text" th:field="*{titolo}" /></span>
-                    <span th:if="${#fields.hasErrors('titolo')}" th:text="#{label.mandatory}">Error</span>
-                </div>
-                <div>
-                    <span th:text="#{label.anno}">Anno: </span>
-                    <span><input type="text" th:field="*{anno}" /></span>
-                    <span th:if="${#fields.hasErrors('anno')}" th:text="#{label.mandatory}">Error</span>
-                </div>
-                
-		<div> <p> Scegli un autore: </p>
+<body>
+	<h1>Inserisci una nuova opera :</h1>
+	<form action="#" th:action="@{/home/addOpera}" th:object="${opera}"
+		method="post">
+
+		<div>
+			<span th:text="#{label.titolo}">Title: </span> <span><input
+				type="text" th:field="*{titolo}" /></span> <span
+				th:if="${#fields.hasErrors('titolo')}" th:text="#{label.mandatory}">Error</span>
+		</div>
+		<div>
+			<span th:text="#{label.anno}">Anno: </span> <span>
+			<input
+				type="text" th:field="*{anno}" /></span> <span
+				th:if="${#fields.hasErrors('anno')}" th:text="#{label.mandatory}">Error</span>
+		</div>
+
+		<div>
+			<p>Scegli un autore:</p>
 			<select name="dropAutore" id="dropAutore" th:field="*{autore}">
-			<option value="0"> seleziona artista </option>
-			<option th:each="autore : ${autori}" th:value="${autore.id}" th:text="${autore.cognome}"> </option>
+				<option value="0">seleziona artista</option>
+				<option th:each="autore : ${autori}" th:value="${autore.id}"
+					th:text="${autore.cognome}"></option>
 			</select>
 
 		</div>
 		<div>
-					<span><button type="submit">Invia</button></span>
-				</div>
-			</form>
-			<a href="/home"> torna alla home</a>
-    </body>
+			<span><button type="submit" class="btn btn-success btn-sm">
+						<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						Invia
+					</button> </span>
+		</div>
+	</form>
+	
+	<br> </br> 
+	<br> </br>
+	<a href="/home"> <span class="glyphicon glyphicon-home"> </span> <b></b>
+		torna alla home
+	</a>
+	<script src="/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</body>
 </html>

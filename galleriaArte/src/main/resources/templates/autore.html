@@ -6,20 +6,23 @@
 <link rel="stylesheet" href="/bootstrap-3.3.7/css/bootstrap.min.css" />
 <body>
 	<!-- <img th:src="@{${'/img/icons/' + opera.operaId + '.png'}}" /> -->
+	
+	
 	<div>
-		<p th:text=" ${autore.nome}" />
+		<h1> Autore inserito: </h1>
+		  <p th:text=" #{label.nome}  + ${autore.nome}" />
 	</div>
 	<div>
-		<p th:text=" ${autore.cognome}" />
+		<p th:text="  #{label.cognome}  +${autore.cognome}" />
 	</div>
 	<div>
-		<p th:text=" ${autore.nazionalita}" />
+		<p th:text="  #{label.nazionalita} +${autore.nazionalita}" />
 	</div>
 	<div>
-		<p th:text="'Data di Nascita: ' + ${autore.dataNascita}" />
+		<p th:text=" #{label.dataNascita} + ${autore.dataNascita}" />
 	</div>
 	<div>
-		<p th:text="'Data di Morte: ' + ${autore.dataMorte}"
+		<p th:text=" #{label.dataMorte} + ${autore.dataMorte}"
 			th:if="${autore.dataMorte}" />
 	</div>
 
@@ -39,6 +42,7 @@
 	<a href="/home"> <span class="glyphicon glyphicon-home"> </span> <b></b>
 		torna alla home
 	</a>
+	
 	<script src="/jquery/jquery-3.2.1.min.js"></script>
 	<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 
