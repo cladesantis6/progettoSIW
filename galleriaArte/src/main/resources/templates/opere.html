@@ -2,7 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title> Opere </title>
-<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="/bootstrap-3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/bootstrap-3.3.7/css/autoriStyle.css" />
 </head>
 
 <body>
@@ -10,13 +13,19 @@
 	<a href="/home/opere/opereAnno"> ordinate per anno </a>
 	<a href="home/opere/opereAutore"> ordinate per autore </a>
 	
-<section>
-	<ul th:each="opera : ${opere}">
-			<li><a th:href ="@{/home/opere/opera(id=${opera.id})}" th:text="${opera.titolo}"> titolo </a>
+	<section>
+	<ul class="list-group" th:each="opera : ${opere}">
+			<li  class="list-group-item disabled"><a th:href ="@{/home/opere/opera(id=${opera.id})}" th:text="${opera.titolo}"> opera </a>
 			</li>
 	</ul>
 	</section>
 	
-	<a href="/home">torna alla home </a> 
+	<br> </br>
+	<br> </br>
+	<a href="/home"> <span class="glyphicon glyphicon-home"> </span> <b></b>
+		torna alla home
+	</a>
+	<script src="/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

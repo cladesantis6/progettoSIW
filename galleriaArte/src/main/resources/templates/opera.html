@@ -1,29 +1,48 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <title th:text="${opera.titolo}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="/bootstrap-3.3.7/css/bootstrap.min.css" />
 <body>
 	<!-- <img th:src="@{${'/img/icons/' + opera.operaId + '.png'}}" /> -->
+	<h1> Opera inserita: </h1>
 	<div>
-    	<p th:text=" ${opera.titolo}" />
+    	<p th:text=" #{label.titolo}  + ${opera.titolo}" />
     </div>
 	<div>
-    	<p th:text=" ${opera.anno}" />
+    	<p th:text=" #{label.anno}  +${opera.anno}" />
     </div>
 	<div>
     	<p th:text="'Autore: ' + ${opera.autore.cognome}" />
     </div>
     
    <!--  <div sec:authorize="hasRole('ROLE_ADMIN')"> </div> -->
-   <form action="#" th:action="@{/home/opere/opera}" th:object="${opera}" method="post">
-   <input type="hidden" th:field="${opera.id}"/>
-	<input type="submit" value="cancella" name="delete" />
+  
+  <form action="#" th:action="@{/home/opere/opera}"
+		th:object="${opera}" method="post">
+		<input type="hidden" th:field="${opera.id}" /> 
+		<button type="submit"  value="cancella" name="delete" class="btn btn-danger btn-sm">
+		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+		Cancella
+		</button>
 	</form>
-            
    
+   <br>
+	</br>
+	<br>
+	</br>
    
    <div>
-  <a href="/home/addOpera"> inserisci un'altra opera </a>
+  <a href="/home/addOpera"> <span class="glyphicon glyphicon-repeat "> </span>inserisci un'altra opera </a> <b></b>
   </div>
- <div> <a href="/home"> torna alla home </a></div>
+	
+	<a href="/home"> <span class="glyphicon glyphicon-home"> </span> <b></b>
+		torna alla home
+	</a>
+	
+	<script src="/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+
 </body>
 </html>
