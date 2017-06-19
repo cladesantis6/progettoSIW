@@ -14,6 +14,8 @@ public interface AutoreRepository extends CrudRepository<Autore, Long> {
     
     List<Autore> findByNazionalita(String nazionalita);
     
+    List<Autore> findAllByOrderByCognomeAsc();
+    
     
     
 }

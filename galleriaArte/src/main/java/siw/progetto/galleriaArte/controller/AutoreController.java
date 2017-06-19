@@ -48,12 +48,12 @@ public class AutoreController {
 	
 	/* form */
 	
-	@GetMapping("/home/addAutore")
+	@GetMapping("/admin/addAutore")
     public String showForm(Autore autore) {
         return "formAutore";
     }
 
-    @PostMapping("/home/addAutore")
+    @PostMapping("/admin/addAutore")
     public String checkCustomerInfo(@Valid @ModelAttribute Autore autore, 
     									BindingResult bindingResult, Model model) {
     	

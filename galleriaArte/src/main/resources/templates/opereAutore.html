@@ -10,8 +10,6 @@
 
 <body>
 	
-	<a href="/home/opere/anno"> ordinate per anno </a>
-	
 	<section>
 	<ul class="list-group" th:each="opera : ${opere}">
 			<li  class="list-group-item disabled"><a th:href ="@{/home/opere/opera(id=${opera.id})}" th:text="${opera.titolo}"> opera </a>

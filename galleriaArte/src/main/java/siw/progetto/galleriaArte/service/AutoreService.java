@@ -13,9 +13,12 @@ public class AutoreService {
 	@Autowired
     private AutoreRepository autoreRepository;
 
+
+    
     public Iterable<Autore> findAll() {
-        return this.autoreRepository.findAll();
+        return this.autoreRepository.findAllByOrderByCognomeAsc();
     }
+  
 
     @Transactional
     public void add(final Autore autore) {

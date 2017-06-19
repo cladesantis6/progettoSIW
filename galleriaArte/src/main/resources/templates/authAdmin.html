@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>promuovi</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="/bootstrap-3.3.7/css/bootstrap.min.css" />
+
+</head>
+<body>
+	<h1>Inserisci l'utente da promuovere ad amministratore:</h1>
+	<form action="#" th:action="@{/admin/authAdmin}" th:object="${username}"
+		method="post">
+			<div>
+				<div>
+					<span th:text="#{label.authUsername}">Username: </span> <span><input
+						type="text" th:field="*{username}" /></span> <span
+						th:if="${#fields.hasErrors('username')}" th:text="#{label.mandatory}">Error</span>
+				</div>
+
+
+
+			<div>
+				<span> <button type="submit" class="btn btn-success btn-sm">
+						<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						Invia
+					</button> </span>
+			</div>
+		</div>
+	</form>
+	<br/>
+	<br/>
+	<a href="/home"> <span class="glyphicon glyphicon-home"> </span> <b></b>
+		torna alla home
+	</a>
+	<script src="/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

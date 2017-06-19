@@ -11,11 +11,17 @@ public interface OperaRepository extends CrudRepository<Opera, Long> {
 
     
 
-    List<Opera> findByAutore(Autore autore);  // ??????
+    List<Opera> findByAutore(Autore autore);
         
     List<Opera> findByTitoloOrderByTitoloAsc(String titolo); 
     
-    List<Opera> findByAutoreOrderByAutoreAsc(Autore autore);
+    List<Opera> findByAutoreOrderByTitoloAsc(Autore autore);
+    
+    List<Opera> findAllByOrderByTitolo();
+    
+    List<Opera> findAllByOrderByAnno();
+    
+    List<Opera> findAllByOrderByAutore();
     
     
 }

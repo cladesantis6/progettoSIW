@@ -10,7 +10,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import siw.progetto.galleriaArte.model.Autore;
 import siw.progetto.galleriaArte.model.Utente;
 import siw.progetto.galleriaArte.service.UtenteService;
 
@@ -48,4 +50,19 @@ public class UtenteController {
 			} 
 		
 	}
+	
+	
+    @GetMapping("/admin/authAdmin")
+    public String showAuth() {
+        return "authAdmin";
+    }
+    
+	@PostMapping("/admin/authAdmin")
+	public String AutorizzaUtente(Model model, @ModelAttribute String username){		
+		Utente utente = utenteservice.findByUsername(username);
+		utente.setRuolo("ROLE_ADMIN"); 
+		return  "home";
+			} 
+		
+	
 }

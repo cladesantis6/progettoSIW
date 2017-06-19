@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <title th:text="${opera.titolo}"></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,12 +15,13 @@
     	<p th:text=" #{label.anno}  +${opera.anno}" />
     </div>
 	<div>
-    	<p th:text="'Autore: ' + ${opera.autore.cognome}" />
+    	<p th:text="#{label.autore}"> Artist: </p>
+    	<a th:href="@{/home/autori/autore(id=${opera.autore.id})}" th:text="${opera.autore.cognome}"> </a>
     </div>
     
    <!--  <div sec:authorize="hasRole('ROLE_ADMIN')"> </div> -->
   
-  <form action="#" th:action="@{/home/opere/opera}"
+  <form sec:authorize="hasRole('ROLE_ADMIN')" action="#" th:action="@{/home/opere/opera}"
 		th:object="${opera}" method="post">
 		<input type="hidden" th:field="${opera.id}" /> 
 		<button type="submit"  value="cancella" name="delete" class="btn btn-danger btn-sm">
@@ -28,10 +30,8 @@
 		</button>
 	</form>
    
-   <br>
-	</br>
-	<br>
-	</br>
+   <br/>
+   <br/>
    
    <div>
   <a href="/home/addOpera"> <span class="glyphicon glyphicon-repeat "> </span>inserisci un'altra opera </a> <b></b>

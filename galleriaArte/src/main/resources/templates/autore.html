@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <title th:text="${autore.cognome}"></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,8 +26,10 @@
 		<p th:text=" #{label.dataMorte} + ${autore.dataMorte}"
 			th:if="${autore.dataMorte}" />
 	</div>
+	
+	<a th:href ="@{/home/opere/autore(id=${autore.id})}"> Opere	</a>
 
-	<form action="#" th:action="@{/home/autori/autore}"
+	<form sec:authorize="hasRole('ROLE_ADMIN')" action="#" th:action="@{/home/autori/autore}"
 		th:object="${autore}" method="post">
 		<input type="hidden" th:field="${autore.id}" /> 
 		<button type="submit"  value="cancella" name="delete" class="btn btn-danger btn-sm">
@@ -35,10 +38,8 @@
 		</button>
 	</form>
 
-	<br>
-	</br>
-	<br>
-	</br>
+	<br/>
+	<br/>
 	<a href="/home"> <span class="glyphicon glyphicon-home"> </span> <b></b>
 		torna alla home
 	</a>
