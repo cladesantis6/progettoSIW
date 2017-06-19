@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import siw.progetto.galleriaArte.model.Autore;
-import siw.progetto.galleriaArte.model.Opera;
 import siw.progetto.galleriaArte.service.AutoreService;
 
 

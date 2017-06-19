@@ -12,7 +12,6 @@ public class AutoreService {
 	
 	@Autowired
     private AutoreRepository autoreRepository;
-	private OperaService operaService; 
 
     public Iterable<Autore> findAll() {
         return this.autoreRepository.findAll();
@@ -27,10 +26,6 @@ public class AutoreService {
 		return this.autoreRepository.findOne(id);
 	}
 
-	/*@Transactional
-	public void delete(Long id) {
-		this.autoreRepository.delete(id);
-	} */
 	
 	@Transactional
 	public void delete(final Autore autore) {

@@ -17,13 +17,17 @@ public class UtenteService {
         return this.utenteRepository.findAll();
     }
 
-    @Transactional
-    public void add(final Utente utente) {
-        this.utenteRepository.save(utente);
-    }
+	public Utente findByUsername(String username) {
+		return this.utenteRepository.findByUsername(username);
+	}
 
-	public Utente findbyId(Long id) {
-		return this.utenteRepository.findOne(id);
+	public boolean alreadyExists(String username) {
+		return (this.utenteRepository.findByUsername(username)!=null);	
+	}
+
+	@Transactional
+	public void add(final Utente utente) {		
+		this.utenteRepository.save(utente);
 	}
 
 }

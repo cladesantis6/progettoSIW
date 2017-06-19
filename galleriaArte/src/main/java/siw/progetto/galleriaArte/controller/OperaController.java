@@ -1,6 +1,6 @@
 package siw.progetto.galleriaArte.controller;
 
-import java.util.List;
+
 
 import javax.validation.Valid;
 
@@ -10,12 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
-import siw.progetto.galleriaArte.model.Autore;
 import siw.progetto.galleriaArte.model.Opera;
 import siw.progetto.galleriaArte.service.AutoreService;
 import siw.progetto.galleriaArte.service.OperaService;

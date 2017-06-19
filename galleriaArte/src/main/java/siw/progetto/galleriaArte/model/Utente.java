@@ -1,19 +1,16 @@
 package siw.progetto.galleriaArte.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
 public class Utente {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idUtente; 
@@ -32,15 +29,12 @@ public class Utente {
 	@Column (unique=true)
 	private String nickname; 
 	
+	
 	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataIscrizione;
-	
-	//Come inserire ruoli?
-	
-	public Utente() {
-		this.dataIscrizione = new Date();
-	}
+	@Column(nullable = false)
+	private boolean enabled;
+
+	private String ruolo;
 	
 	
 	public Long getIdUtente() {
@@ -75,20 +69,28 @@ public class Utente {
 		this.nickname = nickname;
 	}
 
-	public Date getDataIscrizione() {
-		return dataIscrizione;
+    public boolean isEnabled() {
+		return enabled;
 	}
 
-	public void setDataIscrizione(Date dataIscrizione) {
-		this.dataIscrizione = dataIscrizione;
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
+	
+	public String getRuolo() {
+		return ruolo;
+	}
+
+	public void setRuolo(String ruolo) {
+		this.ruolo = ruolo;
+	}
+
 
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((dataIscrizione == null) ? 0 : dataIscrizione.hashCode());
 		result = prime * result + ((idUtente == null) ? 0 : idUtente.hashCode());
 		result = prime * result + ((nickname == null) ? 0 : nickname.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
@@ -106,11 +108,6 @@ public class Utente {
 		if (getClass() != obj.getClass())
 			return false;
 		Utente other = (Utente) obj;
-		if (dataIscrizione == null) {
-			if (other.dataIscrizione != null)
-				return false;
-		} else if (!dataIscrizione.equals(other.dataIscrizione))
-			return false;
 		if (idUtente == null) {
 			if (other.idUtente != null)
 				return false;

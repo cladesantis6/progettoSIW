@@ -1,5 +1,6 @@
 package siw.progetto.galleriaArte.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,9 +15,9 @@ public class Opera {
 	private Long id; 
 	
 	@NotNull
+	@Column(nullable=false)
 	private String titolo; 
-	
-	@NotNull 
+	 
 	private int anno; 
 	
 	@ManyToOne

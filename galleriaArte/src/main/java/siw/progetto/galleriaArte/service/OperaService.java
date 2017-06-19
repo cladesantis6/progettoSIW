@@ -1,12 +1,10 @@
 package siw.progetto.galleriaArte.service;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import siw.progetto.galleriaArte.model.Autore;
 import siw.progetto.galleriaArte.model.Opera;
 import siw.progetto.galleriaArte.repository.OperaRepository;
 
