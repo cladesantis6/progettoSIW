@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" 	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-<title> Autori </title>
+<title>Autori</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="/bootstrap-3.3.7/css/bootstrap.min.css" />
@@ -9,61 +10,75 @@
 </head>
 
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-   
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
- 
-    </div>
-    
- <!-- class="active"  -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-       	<li><a href="/home" th:text="#{label.home}"> Home <span class="sr-only">(current)</span></a></li>
-        <li ><a href="/home/opere/titolo"> Opere <span class="sr-only">(current)</span></a></li>
-        <li class="active"><a href="/home/autori">Artisti <span class="sr-only">(current)</span></a></li>
-        <li sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Admin <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/admin/addAutore">Inserisci nuovo artista</a></li>
-            <li><a href="/admin/addOpera">Inserisci nuova opera </a></li>
-            <li><a href="/admin/authAdmin">Autorizza un altro admin</a></li>
-          </ul>
-        </li>
-        <li>
-		<form th:action="@{/logout}" method="post">
-		    <input type="submit" value="Logout"/>
-		</form>
-		</li>
-      </ul>
-     
-    </div>
-  </div>
-</nav>
-<br/>
-<br/>
-	<h1> Artisti: </h1>
-	
+<div class="container">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+					aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+
+			</div>
+
+			<!-- class="active"  -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/home" th:text="#{label.home}"> Home <span
+							class="sr-only">(current)</span></a></li>
+					<li><a href="/home/opere/titolo"> Opere <span
+							class="sr-only">(current)</span></a></li>
+					<li class="active"><a href="/home/autori">Artisti <span
+							class="sr-only">(current)</span></a></li>
+					<li sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown"><a
+						href="#" class="dropdown-toggle" data-toggle="dropdown"
+						role="button" aria-haspopup="true" aria-expanded="false">
+							Admin <span class="caret"></span>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="/admin/addAutore">Inserisci nuovo artista</a></li>
+							<li><a href="/admin/addOpera">Inserisci nuova opera </a></li>
+							<li><a href="/admin/authAdmin">Autorizza un altro admin</a></li>
+						</ul></li>
+					<li>
+						<form th:action="@{/logout}" method="post">
+							<input type="submit" value="Logout" />
+						</form>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+	<br />
+	<br />
+	<h1>Artisti:</h1>
+
+	<br/> 
 	<!--   <a href="/autoriAnno" ><span class="glyphicon glyphicon-list-alt"> </span> ordinati per anno </a>  -->
 
-	<section>
-	<ul class="list-group" th:each="autore : ${autori}">
+	<div class="list-group" th:each="autore: ${autori}">
+		<a class="list-group-item" th:href="@{/home/autori/autore(id=${autore.id})}" th:text="${autore.cognome} + ' '+ ${autore.nome}">
+			
+		</a>
+	</div>
+
+	<!--  <ul class="list-group" th:each="autore : ${autori}">
 			<li  class="list-group-item disabled"><a th:href ="@{/home/autori/autore(id=${autore.id})}" th:text="${autore.cognome}"> autore </a>
 			</li>
 	</ul>
-	</section>
-	
-	
-	
-	<br/>
-	<br/>
+	-->
 
+
+
+	<br />
+	<br />
+</div>
 	<script src="/jquery/jquery-3.2.1.min.js"></script>
 	<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 </body>

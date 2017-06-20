@@ -27,7 +27,7 @@
 			th:if="${autore.dataMorte}" />
 	</div>
 	
-	<div>
+	 <div th:if="${opera.descrizione}" >
 		<p th:text="#{label.descrizione}">Description:</p>
 		<p th:text="${autore.descrizione}" />
 	</div>

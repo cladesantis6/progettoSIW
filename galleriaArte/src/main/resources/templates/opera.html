@@ -19,9 +19,9 @@
     	<a th:href="@{/home/autori/autore(id=${opera.autore.id})}" th:text="${opera.autore.cognome}"> </a>
     </div>
     
-    <div>
+    <div th:if="${opera.descrizione}" >
 		<p th:text="#{label.descrizione}">Description:</p>
-		<p th:text="${autore.descrizione}" />
+		<p th:text="${opera.descrizione}" />
 	</div>
     
    <!--  <div sec:authorize="hasRole('ROLE_ADMIN')"> </div> -->
