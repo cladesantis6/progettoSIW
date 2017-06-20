@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import siw.progetto.galleriaArte.model.Utente;
+
 @Controller 
 public class HomeController {
 	

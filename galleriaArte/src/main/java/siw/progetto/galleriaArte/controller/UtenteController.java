@@ -23,10 +23,10 @@ public class UtenteController {
     @Autowired
     private UtenteService utenteservice; 
 
-    	
+    
     @GetMapping("/registrazione")
     public String showForm(Utente utente) {
-        return "formUtente";
+        return "registrazione";
     }
     
 	@PostMapping("/registrazione")
@@ -34,7 +34,7 @@ public class UtenteController {
 		
 		if (bindingResult.hasErrors())
 		{
-			return "formUtente";
+			return "registrazione";
 		}
 		else {
 			
