@@ -9,7 +9,8 @@
 </head>
 
 <body>
-	
+<div class="container">
+	<h2> Le opere dell'autore selezionato sono: </h2>
 	<section>
 	<div class="list-group" th:each="opera : ${opere}">
 		<a class="list-group-item" th:href="@{/home/opere/opera(id=${opera.id})}" th:text="${opera.titolo}">
@@ -24,6 +25,7 @@
 		torna alla home
 	</a>
 	</p>
+	</div>
 	<script src="/jquery/jquery-3.2.1.min.js"></script>
 	<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 </body>

@@ -42,8 +42,8 @@
    <br/>
    <br/>
    
-   <div>
-  <a href="/home/addOpera"> <span class="glyphicon glyphicon-repeat "> </span>inserisci un'altra opera </a> <b></b>
+   <div sec:authorize="hasRole('ROLE_ADMIN')">
+  <a  href="/home/addOpera"> <span class="glyphicon glyphicon-repeat "> </span>inserisci un'altra opera </a> <b></b>
 
 	</div>
 	<div>
