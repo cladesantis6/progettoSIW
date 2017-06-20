@@ -5,10 +5,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="/bootstrap-3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/bootstrap-3.3.7/css/operaStyle.css" />
 <body>
 	<!-- <img th:src="@{${'/img/icons/' + opera.operaId + '.png'}}" /> -->
 	
-	
+	<div class="container">
 	<div>
 		<h1> Autore inserito: </h1>
 		  <p th:text=" #{label.nome}  + ${autore.nome}" />
@@ -27,13 +28,14 @@
 			th:if="${autore.dataMorte}" />
 	</div>
 	
-	 <div th:if="${opera.descrizione}" >
+	 <div th:if="${autore.descrizione}" >
 		<p th:text="#{label.descrizione}">Description:</p>
 		<p th:text="${autore.descrizione}" />
 	</div>
 	
-	<a th:href ="@{/home/opere/autore(id=${autore.id})}"> Opere	</a>
+<div>	<a th:href ="@{/home/opere/autore(id=${autore.id})}"> Opere	</a> </div>
 
+	<br/>
 	<form sec:authorize="hasRole('ROLE_ADMIN')" action="#" th:action="@{/home/autori/autore}"
 		th:object="${autore}" method="post">
 		<input type="hidden" th:field="${autore.id}" /> 
@@ -44,11 +46,12 @@
 	</form>
 
 	<br/>
-	<br/>
+	<div>
 	<a href="/home" th:text="#{label.home}"> <span class="glyphicon glyphicon-home"> </span> <b></b>
 		Back to homepage
 	</a>
-	
+	</div>
+	</div>
 	<script src="/jquery/jquery-3.2.1.min.js"></script>
 	<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 

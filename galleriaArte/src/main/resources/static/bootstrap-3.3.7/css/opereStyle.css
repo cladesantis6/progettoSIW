@@ -5,6 +5,8 @@ body {
     background-size: cover;
 }
 
+p { font-size: 200%; }
+
 h1 {
     font-style: italic;
     font-family: Verdana;
