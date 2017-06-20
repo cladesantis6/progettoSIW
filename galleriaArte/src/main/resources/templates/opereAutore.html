@@ -5,23 +5,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="/bootstrap-3.3.7/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/bootstrap-3.3.7/css/autoriStyle.css" />
+<link rel="stylesheet" href="/bootstrap-3.3.7/css/opereStyle.css" />
 </head>
 
 <body>
 	
 	<section>
-	<ul class="list-group" th:each="opera : ${opere}">
-			<li  class="list-group-item disabled"><a th:href ="@{/home/opere/opera(id=${opera.id})}" th:text="${opera.titolo}"> opera </a>
-			</li>
-	</ul>
+	<div class="list-group" th:each="opera : ${opere}">
+		<a class="list-group-item" th:href="@{/home/opere/opera(id=${opera.id})}" th:text="${opera.titolo}">
+			
+		</a>
+	</div>
 	</section>
 	
 	 <br/>
-	 <br/>
+	<p>
 	<a href="/home" th:text="#{label.home}"> <span class="glyphicon glyphicon-home"> </span> <b></b>
 		torna alla home
 	</a>
+	</p>
 	<script src="/jquery/jquery-3.2.1.min.js"></script>
 	<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 </body>

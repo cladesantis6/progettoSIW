@@ -5,9 +5,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="/bootstrap-3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/bootstrap-3.3.7/css/operaStyle.css" />
 <body>
+	<div class="container">
 	<!-- <img th:src="@{${'/img/icons/' + opera.operaId + '.png'}}" /> -->
 	<h1> Opera inserita: </h1>
+	
+	<br/>
 	<div>
     	<p th:text=" #{label.titolo}  + ${opera.titolo}" />
     </div>
@@ -40,14 +44,16 @@
    
    <div>
   <a href="/home/addOpera"> <span class="glyphicon glyphicon-repeat "> </span>inserisci un'altra opera </a> <b></b>
-  </div>
+
+	</div>
+	<div>
+	<a href="/home" th:text="#{label.home}" > <span class="glyphicon glyphicon-home"> </span> 	torna alla home <b></b>
 	
-	<a href="/home" th:text="#{label.home}"> <span class="glyphicon glyphicon-home"> </span> <b></b>
-		torna alla home
 	</a>
-	
+	</div>
 	<script src="/jquery/jquery-3.2.1.min.js"></script>
 	<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 
+</div>
 </body>
 </html>
