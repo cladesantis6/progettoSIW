@@ -19,6 +19,11 @@
     	<a th:href="@{/home/autori/autore(id=${opera.autore.id})}" th:text="${opera.autore.cognome}"> </a>
     </div>
     
+    <div>
+		<p th:text="#{label.descrizione}">Description:</p>
+		<p th:text="${autore.descrizione}" />
+	</div>
+    
    <!--  <div sec:authorize="hasRole('ROLE_ADMIN')"> </div> -->
   
   <form sec:authorize="hasRole('ROLE_ADMIN')" action="#" th:action="@{/home/opere/opera}"
@@ -37,7 +42,7 @@
   <a href="/home/addOpera"> <span class="glyphicon glyphicon-repeat "> </span>inserisci un'altra opera </a> <b></b>
   </div>
 	
-	<a href="/home"> <span class="glyphicon glyphicon-home"> </span> <b></b>
+	<a href="/home" th:text="#{label.home}"> <span class="glyphicon glyphicon-home"> </span> <b></b>
 		torna alla home
 	</a>
 	

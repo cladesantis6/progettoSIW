@@ -10,9 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import siw.progetto.galleriaArte.model.Autore;
 import siw.progetto.galleriaArte.model.Utente;
 import siw.progetto.galleriaArte.service.UtenteService;
 
@@ -51,17 +49,22 @@ public class UtenteController {
 		
 	}
 	
-	
+	// per dare ad un altro utente i permessi di admin
     @GetMapping("/admin/authAdmin")
-    public String showAuth() {
+    public String showAuth(Utente utente) {
         return "authAdmin";
     }
     
 	@PostMapping("/admin/authAdmin")
-	public String AutorizzaUtente(Model model, @ModelAttribute String username){		
-		Utente utente = utenteservice.findByUsername(username);
-		utente.setRuolo("ROLE_ADMIN"); 
-		return  "home";
+	public String AutorizzaUtente(Model model, @ModelAttribute Utente utente){		
+		
+		if (utenteservice.findByUsername(utente.getUsername()) != null) {
+			Utente utente2A = utenteservice.findByUsername(utente.getUsername());
+			utente2A.setRuolo("ROLE_ADMIN");
+			utenteservice.add(utente2A);
+			return  "home";
+		}
+		else return "authAdmin";
 			} 
 		
 	

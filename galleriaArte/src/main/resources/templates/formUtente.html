@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/bootstrap-3.3.7/css/bootstrap.min.css" />
 </head>
 <body>
-	<h1>Inserisci i dati :</h1>
+	<h1>Inserisci i dati:</h1>
 	<form action="#" th:action="@{/registrazione}" th:object="${utente}"
 		method="post">
 
@@ -20,7 +20,7 @@
 			<span th:text="#{label.password}">Password: </span> <span>
 			<input
 				type="text" th:field="*{password}" /></span> <span
-				th:if="${#fields.hasErrors('password')}" th:text="#{label.mandatory}">Error</span>
+				th:if="${#fields.hasErrors('password')}" th:text="#{label.password}">Error</span>
 		</div>
 
 		<div>
@@ -37,7 +37,9 @@
 					</button> </span>
 		</div>
 	</form>
-
+<a href="/login" th:text="#{label.backtologin}"> <span class="glyphicon glyphicon-home"> </span> <b></b>
+		Back to login
+	</a>
 	<script src="/jquery/jquery-3.2.1.min.js"></script>
 	<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 </body>

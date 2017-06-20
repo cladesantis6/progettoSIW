@@ -9,8 +9,7 @@
 </head>
 <body>
 	<h1>Inserisci un artista:</h1>
-	<form action="#" th:action="@{/admin/addAutore}" th:object="${autore}"
-		method="post">
+	<form action="#" th:action="@{/admin/addAutore}" th:object="${autore}" method="post" id="autore">
 		<div class="form-group">
 			<div>
 				<div>
@@ -239,20 +238,24 @@
 			</div>
 
 
+
+			<div>
+				<span th:text="#{label.descrizione}">Description: </span> 
+				<span> <textarea name="description" th:field="*{descrizione}" form="autore">Enter description here...</textarea></span>
+			</div>
 			<div>
 				<span> <button type="submit" class="btn btn-success btn-sm">
 						<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 						Invia
 					</button> </span>
 			</div>
-		</div>
-	</form>
-	<br>
-	</br>
-	<br>
-	</br>
-	<a href="/home"> <span class="glyphicon glyphicon-home"> </span> <b></b>
-		torna alla home
+					</div>
+			</form>
+	
+	<br/>
+	<br/>
+	<a href="/home" th:text="#{label.home}"> <span class="glyphicon glyphicon-home"> </span> <b></b>
+		Back to homepage
 	</a>
 	<script src="/jquery/jquery-3.2.1.min.js"></script>
 	<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>

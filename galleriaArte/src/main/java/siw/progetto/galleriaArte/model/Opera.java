@@ -20,8 +20,11 @@ public class Opera {
 	 
 	private int anno; 
 	
+	private String descrizione;
+	
 	@ManyToOne
 	private Autore autore;
+
 	
 	public Long getId() {
 		return id;
@@ -47,6 +50,16 @@ public class Opera {
 	public void setAutore(Autore autore) {
 		this.autore = autore;
 	}
+	
+	public String getDescrizione() {
+		return descrizione;
+	}
+
+
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

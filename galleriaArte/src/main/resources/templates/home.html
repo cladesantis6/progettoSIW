@@ -29,6 +29,7 @@
  <!-- class="active"  -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="/home" th:text="#{label.home}"> Home <span class="sr-only">(current)</span></a></li>
         <li ><a href="/home/opere/titolo"> Opere <span class="sr-only">(current)</span></a></li>
         <li><a href="/home/autori">Artisti <span class="sr-only">(current)</span></a></li>
         <li sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown">
@@ -36,11 +37,15 @@
           <ul class="dropdown-menu">
             <li><a href="/admin/addAutore">Inserisci nuovo artista</a></li>
             <li><a href="/admin/addOpera">Inserisci nuova opera </a></li>
-            <li><a href="/admin/authAdmin">Autorizza un altro admin</a>
+            <li><a href="/admin/authAdmin">Autorizza un altro admin</a></li>
           </ul>
         </li>
-
-		<li><a th:href="@{/logout}">Logout <span class="sr-only">(current)</span></a></li>
+        <li>
+		<form th:action="@{/logout}" method="post">
+		    <button class="btn btn-link" type="submit">Logout</button>
+		</form>
+		</li>
+		<!-- <li><a th:href="@{/logout}">Logout <span class="sr-only">(current)</span></a></li> -->
       </ul>
      
     </div>

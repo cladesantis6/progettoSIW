@@ -18,6 +18,13 @@ public class HomeController {
 	    return "login";
 	  }
 	
+	@RequestMapping("/login-logout.html")
+	  public String logout(Model model) {
+		
+		model.addAttribute("logout", true);
+		return "login";
+	  }
+	
 	@RequestMapping("/home")
 	public String mostraHome() {
 		return "home";

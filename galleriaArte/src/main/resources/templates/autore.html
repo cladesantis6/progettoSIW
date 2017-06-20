@@ -27,6 +27,11 @@
 			th:if="${autore.dataMorte}" />
 	</div>
 	
+	<div>
+		<p th:text="#{label.descrizione}">Description:</p>
+		<p th:text="${autore.descrizione}" />
+	</div>
+	
 	<a th:href ="@{/home/opere/autore(id=${autore.id})}"> Opere	</a>
 
 	<form sec:authorize="hasRole('ROLE_ADMIN')" action="#" th:action="@{/home/autori/autore}"
@@ -40,8 +45,8 @@
 
 	<br/>
 	<br/>
-	<a href="/home"> <span class="glyphicon glyphicon-home"> </span> <b></b>
-		torna alla home
+	<a href="/home" th:text="#{label.home}"> <span class="glyphicon glyphicon-home"> </span> <b></b>
+		Back to homepage
 	</a>
 	
 	<script src="/jquery/jquery-3.2.1.min.js"></script>

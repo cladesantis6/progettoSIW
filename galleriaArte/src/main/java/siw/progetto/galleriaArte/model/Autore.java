@@ -42,6 +42,9 @@ public class Autore {
 	@Temporal(TemporalType.DATE)
 	private Date dataMorte; 
 	
+	private String descrizione;
+	
+
 	@OneToMany(mappedBy="autore", cascade= CascadeType.REMOVE)
 	private List<Opera> opere; 
 	
@@ -119,6 +122,16 @@ public class Autore {
 	public void setOpere(List<Opera> opere) {
 		this.opere = opere;
 	}
+	
+	public String getDescrizione() {
+		return descrizione;
+	}
+
+
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+
 
 
 	@Override
